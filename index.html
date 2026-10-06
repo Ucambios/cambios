@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMBIOS BOLIVIA - PERÚ | Mesa de Cambio Digital PEN / BOB / USD</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- QRCode.js Library para generar QR dinámico profesional -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            300: '#FDE047',
+                            400: '#FACC15',
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                            700: '#A16207',
+                        },
+                        fintech: {
+                            bg: '#030712',
+                            card: 'rgba(15, 23, 42, 0.88)',
+                            border: 'rgba(234, 179, 8, 0.3)',
+                        }
+                    },
+                    animation: {
+                        'kenburns': 'kenburns 20s ease infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        kenburns: {
+                            '0%': { transform: 'scale(1) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.15) translate(-1%, -1%)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #ca8a04; border-radius: 4px; }
+        .glass-panel {
+            background: rgba(10, 18, 32, 0.9);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(234, 179, 8, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px -10px rgba(234, 179, 8, 0.25);
+        }
+        .neon-glow-active {
+            border-color: #facc15 !important;
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.5), inset 0 0 15px rgba(250, 204, 21, 0.2) !important;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5C0 0%, #FACC15 50%, #CA8A04 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-button {
+            background: linear-gradient(135deg, #FACC15 0%, #CA8A04 100%);
+            color: #000;
+            font-weight: 800;
+            transition: all 0.3s ease;
+        }
+        .gold-button:hover {
+            background: linear-gradient(135deg, #FFE066 0%, #EAB308 100%);
+            box-shadow: 0 0 35px rgba(250, 204, 21, 0.65);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-fintech-bg text-slate-100 font-sans min-h-screen relative overflow-x-hidden selection:bg-gold-500 selection:text-black">
+
+    <!-- Background Image Slider with Ken Burns Effect -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div id="bg-slide-1" class="absolute inset-0 bg-cover bg-center animate-kenburns transition-opacity duration-1000 opacity-100" style="background-image: url('Bitcoin\ for\ Beginners_\ Simple\ Tips\ to\ Get\ Started\ With\ Crypto.jpg');"></div>
+        <div id="bg-slide-2" class="absolute inset-0 bg-cover bg-center animate-kenburns transition-opacity duration-1000 opacity-0" style="background-image: url('Gráfico\ del\ mercado\ de\ valores\ o\ del\ comercio\ de\ divisas\ en\ concepto\ gráfico\ _\ Foto\ Premium.jpg');"></div>
+        <div id="bg-slide-3" class="absolute inset-0 bg-cover bg-center animate-kenburns transition-opacity duration-1000 opacity-0" style="background-image: url('descargar\ \(15\).jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-fintech-bg/95 via-fintech-bg/85 to-fintech-bg/98"></div>
+    </div>
+
+    <!-- Canvas for Floating Gold Coins Particles -->
+    <canvas id="coinsCanvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col min-h-screen justify-between gap-10">
+        
+        <!-- HEADER SECTION WITH RICO MCPAK (TIO RICO) LOGO -->
+        <header class="glass-panel rounded-3xl p-6 sm:p-8 border border-gold-500/40 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-gold-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="flex flex-col sm:flex-row items-center gap-5">
+                    <!-- Logotipo con la imagen temática de Rico McPato (Scrooge McDuck) -->
+                    <div class="relative shrink-0">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold-500 to-amber-600 rounded-2xl blur opacity-40"></div>
+                        <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-gold-400 shadow-2xl bg-slate-900 flex items-center justify-center">
+                            <img id="mainLogoImg" src="pato.jpg">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 text-xs font-bold mb-2">
+                            <i class="fa-solid fa-certificate"></i> Mesa de Divisas Certificada
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-4xl font-black tracking-tight gold-gradient-text uppercase">
+                            CAMBIOS BOLIVIA - PERÚ
+                        </h1>
+                        <p class="text-xs sm:text-sm text-slate-300 font-semibold tracking-wider uppercase flex items-center justify-center md:justify-start gap-2 mt-1.5">
+                            <span class="bg-emerald-500/10 text-emerald-400 px-2.5 py-0.5 rounded border border-emerald-500/20"><i class="fa-solid fa-shield-halved"></i> Operaciones Seguras</span>
+                            <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                            <span class="text-slate-400">SIN COMISIONES OCULTAS</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 bg-slate-900/90 px-5 py-3 rounded-2xl border border-slate-700/80 shadow-inner shrink-0">
+                    <div class="flex items-center gap-2">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-wider">Sistema Operativo</span>
+                    </div>
+                    <div class="h-4 w-px bg-slate-700"></div>
+                    <div class="text-xs font-mono font-bold text-gold-300 flex items-center gap-1.5">
+                        <i class="fa-regular fa-clock text-slate-400"></i>
+                        <span id="liveClock">00:00:00 - BOT</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- COMPARTIR ENLACE DE LA PLATAFORMA -->
+        <section class="w-full">
+            <div class="glass-panel rounded-3xl p-5 sm:p-6 border border-gold-500/30 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5 text-center sm:text-left">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xl font-bold shrink-0">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm sm:text-base font-extrabold text-slate-100">Enlace Oficial de la Plataforma</h3>
+                        <p class="text-xs text-slate-400">Copia el enlace o haz clic para abrir directamente la plataforma.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <input type="text" id="platformUrlInput" readonly class="bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs font-mono text-gold-300 w-full sm:w-72 select-all focus:outline-none">
+                    <button onclick="openPlatformDirectly()" class="bg-slate-800 hover:bg-slate-700 text-gold-300 border border-gold-500/30 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shrink-0 flex items-center gap-1.5 shadow" title="Abrir Plataforma">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir
+                    </button>
+                    <button onclick="copyPlatformUrl()" class="gold-button px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider shrink-0 flex items-center gap-1.5 shadow-lg">
+                        <i class="fa-regular fa-copy text-sm"></i> Copiar
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- QUIÉNES SOMOS -->
+<section class="w-full">
+    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-gold-500/30 shadow-2xl relative overflow-hidden">
+
+        <!-- Efectos decorativos -->
+        <div class="absolute -top-24 -left-24 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10">
+
+            <!-- Encabezado -->
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 mb-7">
+
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
+                                bg-gold-500/15 border border-gold-500/30
+                                text-gold-300 text-[10px] sm:text-xs font-black uppercase tracking-wider">
+                        <i class="fa-solid fa-building-columns"></i>
+                        Conócenos
+                    </div>
+
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mt-3 tracking-tight">
+                        ¿QUIÉNES <span class="gold-gradient-text">SOMOS?</span>
+                    </h2>
+
+                    <p class="text-sm text-slate-400 mt-2 max-w-2xl">
+                        Una casa de cambio de divisas enfocada en facilitar el intercambio de
+                        <span class="te </span>
+                        de manera rápida, clara y sencilla.
+                    </p>
+                </div>
+
+                <!-- Indicador -->
+                <div class="flex items-center gap-3 bg-slate-950/70 px-4 py-3
+                            rounded-2xl border border-emerald-500/20 shrink-0">
+
+                    <div class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full
+                                     rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3
+                                     bg-emerald-500"></span>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">
+                            Estado
+                        </p>
+                        <p class="text-xs font-black text-emerald-400">
+                            PLATAFORMA ACTIVA
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+
+                <!-- Historia / descripción -->
+                <div class="lg:col-span-3 bg-slate-950/50 rounded-3xl
+                            border border-slate-800 p-6 relative overflow-hidden">
+
+                    <div class="absolute top-0 right-0 w-32 h-32
+                                bg-gold-500/5 rounded-full blur-2xl"></div>
+
+                    <div class="relative z-10">
+
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-11 h-11 rounded-xl
+                                        bg-gold-500/15 border border-gold-500/30
+                                        flex items-center justify-center
+                                        text-gold-400">
+                                <i class="fa-solid fa-globe text-lg"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="font-black text-slate-100">
+                                    Conectamos Bolivia y Perú
+                                </h3>
+
+                                <p class="text-[11px] text-slate-500 uppercase font-bold">
+                                    Cambio digital transfronterizo
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            <strong class="text-gold-300">
+                                CAMBIOS BOLIVIA - PERÚ
+                            </strong>
+                            es una plataforma digital creada para simplificar
+                            la coordinación de operaciones de cambio entre
+                            <strong class="text-white">Soles Peruanos (PEN)</strong>,
+                            <strong class="text-white">Bolivianos (BOB)</strong>
+                            y <strong class="text-white">Dólares (USD)</strong>.
+                        </p>
+
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Nuestro objetivo es ofrecer una experiencia moderna
+                            donde el usuario pueda consultar valores de referencia,
+                            calcular conversiones y comunicarse directamente con
+                            nuestro equipo mediante WhatsApp.
+                        </p>
+
+                        <!-- Frase destacada -->
+                        <div class="mt-5 p-4 rounded-2xl
+                                    bg-gold-500/5 border-l-4 border-gold-500">
+
+                            <p class="text-sm font-bold text-gold-300 italic">
+                                <i class="fa-solid fa-quote-left mr-2 opacity-60"></i>
+                                Claridad en el cambio. Rapidez en la atención.
+                                Conexión entre dos países.
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Tarjetas de valores -->
+                <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+
+                    <!-- Rapidez -->
+                    <div class="glass-card rounded-2xl p-5
+                                hover:border-gold-500/50">
+
+                        <div class="w-11 h-11 rounded-xl
+                                    bg-gold-500/15 border border-gold-500/30
+                                    flex items-center justify-center
+                                    text-gold-400 mb-4">
+
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <h4 class="font-black text-white text-sm">
+                            Rapidez
+                        </h4>
+
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                            Cotización y cálculo instantáneo.
+                        </p>
+                    </div>
+
+
+                    <!-- Transparencia -->
+                    <div class="glass-card rounded-2xl p-5
+                                hover:border-emerald-500/50">
+
+                        <div class="w-11 h-11 rounded-xl
+                                    bg-emerald-500/15 border border-emerald-500/30
+                                    flex items-center justify-center
+                                    text-emerald-400 mb-4">
+
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <h4 class="font-black text-white text-sm">
+                            Transparencia
+                        </h4>
+
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                            Información clara antes de coordinar.
+                        </p>
+                    </div>
+
+
+                    <!-- Conexión -->
+                    <div class="glass-card rounded-2xl p-5
+                                hover:border-blue-500/50">
+
+                        <div class="w-11 h-11 rounded-xl
+                                    bg-blue-500/15 border border-blue-500/30
+                                    flex items-center justify-center
+                                    text-blue-400 mb-4">
+
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+
+                        <h4 class="font-black text-white text-sm">
+                            Conexión
+                        </h4>
+
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                            Atención directa por canales digitales.
+                        </p>
+                    </div>
+
+
+                    <!-- Atención -->
+                    <div class="glass-card rounded-2xl p-5
+                                hover:border-purple-500/50">
+
+                        <div class="w-11 h-11 rounded-xl
+                                    bg-purple-500/15 border border-purple-500/30
+                                    flex items-center justify-center
+                                    text-purple-400 mb-4">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                        <h4 class="font-black text-white text-sm">
+                            Atención
+                        </h4>
+
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                            Comunicación rápida y directa.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROCESO -->
+            <div class="mt-6 pt-6 border-t border-slate-800">
+
+                <div class="text-center mb-5">
+
+                    <p class="text-[10px] text-gold-400 font-black uppercase tracking-widest">
+                        Así funciona
+                    </p>
+
+                    <h3 class="text-lg sm:text-xl font-black text-white">
+                        Tu cambio en <span class="text-gold-400">3 pasos</span>
+                    </h3>
+
+                </div>
+
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                    <!-- Paso 1 -->
+                    <div class="relative bg-slate-950/60 rounded-2xl
+                                p-5 border border-slate-800 text-center
+                                group hover:border-gold-500/40 transition-all">
+
+                        <div class="mx-auto w-12 h-12 rounded-full
+                                    bg-gold-500 text-black
+                                    flex items-center justify-center
+                                    font-black text-lg shadow-lg
+                                    group-hover:scale-110 transition-transform">
+                            01
+                        </div>
+
+                        <h4 class="font-black text-white mt-3">
+                            Calcula
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-1">
+                            Ingresa el monto que deseas cambiar.
+                        </p>
+                    </div>
+
+
+                    <!-- Paso 2 -->
+                    <div class="relative bg-slate-950/60 rounded-2xl
+                                p-5 border border-slate-800 text-center
+                                group hover:border-gold-500/40 transition-all">
+
+                        <div class="mx-auto w-12 h-12 rounded-full
+                                    bg-gold-500 text-black
+                                    flex items-center justify-center
+                                    font-black text-lg shadow-lg
+                                    group-hover:scale-110 transition-transform">
+                            02
+                        </div>
+
+                        <h4 class="font-black text-white mt-3">
+                            Coordina
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-1">
+                            Envía tu solicitud directamente por WhatsApp.
+                        </p>
+                    </div>
+
+
+                    <!-- Paso 3 -->
+                    <div class="relative bg-slate-950/60 rounded-2xl
+                                p-5 border border-slate-800 text-center
+                                group hover:border-gold-500/40 transition-all">
+
+                        <div class="mx-auto w-12 h-12 rounded-full
+                                    bg-emerald-500 text-black
+                                    flex items-center justify-center
+                                    font-black text-lg shadow-lg
+                                    group-hover:scale-110 transition-transform">
+                            03
+                        </div>
+
+                        <h4 class="font-black text-white mt-3">
+                            Realiza tu operación
+                        </h4>
+
+                        <p class="text-xs text-slate-400 mt-1">
+                            Sigue las instrucciones proporcionadas por el operador.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>FV
+
+
+        <!-- MAIN LAYOUT: CALCULATOR ON LEFT, RATES ON RIGHT -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full">
+            
+            <!-- LEFT COLUMN: CALCULATOR -->
+            <div class="lg:col-span-7 w-full">
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden border border-gold-500/40">
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <!-- Header de la Calculadora -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                        <div>
+                            <h2 class="text-lg sm:text-xl font-extrabold text-slate-100 flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-gold-500/20 border border-gold-500/30 flex items-center justify-center text-gold-400 text-sm">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </div>
+                                Conversor Profesional Dinámico
+                            </h2>
+                            <p class="text-xs text-slate-400 mt-1">Cálculo bidireccional instantáneo en ambos campos</p>
+                        </div>
+                        
+                        <div class="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-gold-500/30 text-xs font-mono font-bold text-gold-300 shadow-inner flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-gold-400"></i>
+                            <span id="txtCurrentRateHeader">1 PEN = 2.74 BOB</span>
+                        </div>
+                    </div>
+
+                    <!-- Selector de Pares de Divisas -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 bg-slate-950/60 p-2 rounded-2xl border border-slate-800">
+                        <button id="btnPairPENtoBOB" onclick="setPair('PEN_TO_BOB')" class="py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 bg-gold-500 text-black shadow-md">
+                            <span>🇵🇪 PEN <i class="fa-solid fa-arrow-right mx-0.5 text-[10px]"></i> 🇧🇴 BOB</span>
+                            <span class="text-[10px] font-semibold opacity-80">Venta Soles</span>
+                        </button>
+                        <button id="btnPairBOBtoPEN" onclick="setPair('BOB_TO_PEN')" class="py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-slate-400 hover:text-white bg-slate-900/80 border border-slate-800">
+                            <span>🇧🇴 BOB <i class="fa-solid fa-arrow-right mx-0.5 text-[10px]"></i> 🇵🇪 PEN</span>
+                            <span class="text-[10px] font-medium opacity-60">Compra Soles</span>
+                        </button>
+                        <button id="btnPairUSDtoBOB" onclick="setPair('USD_TO_BOB')" class="py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-slate-400 hover:text-white bg-slate-900/80 border border-slate-800">
+                            <span>🇺🇸 USD <i class="fa-solid fa-arrow-right mx-0.5 text-[10px]"></i> 🇧🇴 BOB</span>
+                            <span class="text-[10px] font-medium opacity-60">Venta Dólares</span>
+                        </button>
+                        <button id="btnPairBOBtoUSD" onclick="setPair('BOB_TO_USD')" class="py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-slate-400 hover:text-white bg-slate-900/80 border border-slate-800">
+                            <span>🇧🇴 BOB <i class="fa-solid fa-arrow-right mx-0.5 text-[10px]"></i> 🇺🇸 USD</span>
+                            <span class="text-[10px] font-medium opacity-60">Compra Dólares</span>
+                        </button>
+                    </div>
+
+                    <!-- Input 1: Tú Envías -->
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between items-center text-xs">
+                            <label class="font-extrabold text-slate-300 uppercase tracking-wider" id="lblSend">
+                                Tú Envías (Soles Peruanos)
+                            </label>
+                            <span class="text-slate-400 font-mono text-[11px]">Puedes escribir en ambos campos</span>
+                        </div>
+                        <div class="relative flex items-center">
+                            <input type="number" id="inputSend" value="100" min="0" step="any" oninput="calculateFromSend()"
+                                class="w-full bg-slate-900/90 border-2 border-slate-700 focus:border-gold-400 rounded-2xl py-4 pl-5 pr-32 text-2xl font-black text-slate-100 focus:outline-none transition-all font-mono shadow-inner">
+                            <div class="absolute right-3.5 flex items-center gap-2 bg-slate-800/90 px-3.5 py-2 rounded-xl border border-slate-700 shadow">
+                                <span id="flagSend" class="text-xl">🇵🇪</span>
+                                <span id="codeSend" class="font-black text-xs text-gold-300">PEN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Swap Direction Button -->
+                    <div class="flex justify-center -my-3 relative z-10">
+                        <button onclick="rotatePair()" class="w-11 h-11 rounded-full bg-gold-500 hover:bg-gold-400 text-black flex items-center justify-center shadow-2xl hover:rotate-180 transition-all duration-300 border-2 border-slate-900 group" title="Invertir dirección">
+                            <i class="fa-solid fa-arrows-rotate text-base group-hover:scale-110 transition-transform"></i>
+                        </button>
+                    </div>
+
+                    <!-- Input 2: Tú Recibes -->
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between items-center text-xs">
+                            <label class="font-extrabold text-slate-300 uppercase tracking-wider" id="lblReceive">
+                                Tú Recibes (Bolivianos)
+                            </label>
+                            <span class="text-emerald-400 font-mono text-[11px] font-bold"><i class="fa-solid fa-bolt"></i> Dinámico / Editable</span>
+                        </div>
+                        <div class="relative flex items-center">
+                            <input type="number" id="inputReceive" min="0" step="any" oninput="calculateFromReceive()"
+                                class="w-full bg-slate-900/90 border-2 border-emerald-500/50 focus:border-emerald-400 rounded-2xl py-4 pl-5 pr-32 text-2xl font-black text-emerald-400 focus:outline-none transition-all font-mono shadow-inner">
+                            <div class="absolute right-3.5 flex items-center gap-2 bg-slate-800/90 px-3.5 py-2 rounded-xl border border-slate-700 shadow">
+                                <span id="flagReceive" class="text-xl">🇧🇴</span>
+                                <span id="codeReceive" class="font-black text-xs text-emerald-400">BOB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA WhatsApp Action (Sin mención de operación ni tasa aplicada) -->
+                    <a id="btnWhatsAppPact" href="#" target="_blank" class="gold-button w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-base sm:text-lg font-black uppercase tracking-wider shadow-xl">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        Pactar Cambio en WhatsApp
+                    </a>
+                    <p class="text-center text-xs text-slate-400 mt-2.5 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-lock text-emerald-400"></i> Mensaje ejecutivo optimizado para una atención rápida y limpia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: LIVE RATES & USD -->
+            <div class="lg:col-span-5 flex flex-col gap-5 w-full">
+                <!-- Compramos Card -->
+                <div class="glass-panel rounded-3xl p-5 border-l-4 border-l-emerald-500 flex items-center justify-between shadow-xl relative overflow-hidden">
+                    <div>
+                        <div class="flex items-center gap-2 text-[11px] uppercase font-bold text-slate-400 tracking-wider">
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Compramos</span>
+                            <span>Soles (PEN)</span>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-slate-100 mt-1.5">
+                            1 PEN = <span class="text-emerald-400 font-mono tracking-tight" id="rateBuy">2.68</span> BOB
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up text-emerald-400"></i> Tasa preferencial garantizada</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl font-bold shadow-inner">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                </div>
+
+                <!-- Vendemos Card -->
+                <div class="glass-panel rounded-3xl p-5 border-l-4 border-l-gold-500 flex items-center justify-between shadow-xl relative overflow-hidden">
+                    <div>
+                        <div class="flex items-center gap-2 text-[11px] uppercase font-bold text-slate-400 tracking-wider">
+                            <span class="px-2 py-0.5 rounded bg-gold-500/15 text-gold-400 border border-gold-500/30">Vendemos</span>
+                            <span>Soles (PEN)</span>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-slate-100 mt-1.5">
+                            1 PEN = <span class="text-gold-400 font-mono tracking-tight" id="rateSell">2.74</span> BOB
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-bolt text-gold-400"></i> Despacho inmediato sin esperas</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl font-bold shadow-inner">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                </div>
+
+                <!-- Vendemos Dólares -->
+                <div class="glass-panel rounded-3xl p-5 border-l-4 border-l-blue-500 flex items-center justify-between shadow-xl relative overflow-hidden">
+                    <div>
+                        <div class="flex items-center gap-2 text-[11px] uppercase font-bold text-slate-400 tracking-wider">
+                            <span class="px-2 py-0.5 rounded bg-blue-500/15 text-blue-400 border border-blue-500/30">Vendemos Dólares</span>
+                            <span>USD / BOB</span>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-slate-100 mt-1.5">
+                            1 USD = <span class="text-blue-400 font-mono tracking-tight" id="rateUsd">6.96</span> BOB
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-vault text-blue-400"></i> Liquidez física y digital inmediata</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl font-bold shadow-inner">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Respaldo -->
+                <div class="glass-card rounded-2xl p-4 border border-gold-500/20 flex items-center gap-3.5 bg-slate-900/40">
+                    <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-200 uppercase">Respaldo y Liquidez Internacional</h4>
+                        <p class="text-[11px] text-slate-400">Transferencias y entrega de efectivo garantizadas.</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- PAYMENT ACCOUNTS INTERACTIVE GRID -->
+        <section class="w-full">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-2">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-100 uppercase tracking-tight flex items-center gap-2.5">
+                        <i class="fa-solid fa-building-columns text-gold-400"></i> Canales de Pago Autorizados
+                    </h2>
+                    <p class="text-xs text-slate-400">Haz clic o toca cualquier tarjeta para **iluminarla con brillo neón** y copiar la cuenta automáticamente.</p>
+                </div>
+                <span class="text-xs font-bold text-gold-300 bg-gold-500/15 border border-gold-500/30 px-3.5 py-1.5 rounded-full shadow">
+                    <i class="fa-solid fa-shield text-gold-400"></i> Verificados BCP
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- YAPE -->
+                <div onclick="copyAccount(this, '987654321', 'YAPE PERÚ')" class="glass-card rounded-3xl p-6 cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-purple-600/10 rounded-full blur-xl group-hover:bg-purple-600/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center font-black text-purple-400 text-lg shadow-inner">YP</div>
+                            <div>
+                                <h3 class="font-extrabold text-base text-slate-100">YAPE PERÚ</h3>
+                                <p class="text-xs text-slate-400 font-medium">Billetera Digital (PEN)</p>
+                            </div>
+                        </div>
+                        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:text-gold-400 group-hover:border-gold-500/40 transition-all">
+                            <i class="fa-regular fa-copy text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border border-slate-800 flex justify-between items-center shadow-inner">
+                        <span class="font-mono text-base font-extrabold text-purple-300 tracking-wider">987 654 321</span>
+                        <span class="text-[10px] bg-purple-500/20 text-purple-300 px-2.5 py-1 rounded-lg font-bold uppercase border border-purple-500/30">Mesa Cambio</span>
+                    </div>
+                </div>
+
+                <!-- PLIN -->
+                <div onclick="copyAccount(this, '912345678', 'PLIN PERÚ')" class="glass-card rounded-3xl p-6 cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-cyan-600/10 rounded-full blur-xl group-hover:bg-cyan-600/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-2xl bg-cyan-600/20 border border-cyan-500/40 flex items-center justify-center font-black text-cyan-400 text-lg shadow-inner">PL</div>
+                            <div>
+                                <h3 class="font-extrabold text-base text-slate-100">PLIN PERÚ</h3>
+                                <p class="text-xs text-slate-400 font-medium">Billetera Digital (PEN)</p>
+                            </div>
+                        </div>
+                        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:text-gold-400 group-hover:border-gold-500/40 transition-all">
+                            <i class="fa-regular fa-copy text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border border-slate-800 flex justify-between items-center shadow-inner">
+                        <span class="font-mono text-base font-extrabold text-cyan-300 tracking-wider">912 345 678</span>
+                        <span class="text-[10px] bg-cyan-500/20 text-cyan-300 px-2.5 py-1 rounded-lg font-bold uppercase border border-cyan-500/30">Mesa Cambio</span>
+                    </div>
+                </div>
+
+                <!-- BCP -->
+                <div onclick="copyAccount(this, '193-98765432-0-11', 'BCP PERÚ / BOLIVIA')" class="glass-card rounded-3xl p-6 cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-blue-600/10 rounded-full blur-xl group-hover:bg-blue-600/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center font-black text-blue-400 text-sm shadow-inner">BCP</div>
+                            <div>
+                                <h3 class="font-extrabold text-base text-slate-100">BANCO BCP</h3>
+                                <p class="text-xs text-slate-400 font-medium">Cuenta Corriente Oficial</p>
+                            </div>
+                        </div>
+                        <div class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:text-gold-400 group-hover:border-gold-500/40 transition-all">
+                            <i class="fa-regular fa-copy text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/90 p-3.5 rounded-2xl border border-slate-800 flex justify-between items-center shadow-inner">
+                        <span class="font-mono text-xs sm:text-sm font-extrabold text-blue-300">193-98765432-0-11</span>
+                        <span class="text-[10px] bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded-lg font-bold uppercase border border-blue-500/30">BCP Soles / BOB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LANDMARK CAROUSEL WITH LA PAZ, COCHABAMBA & SANTA CRUZ PHOTOS -->
+        <section class="w-full flex flex-col gap-6">
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-gold-500/30 shadow-xl overflow-hidden relative">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
+                    <div>
+                        <span class="bg-gold-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full shadow">Sedes Principales Bolivia</span>
+                        <h3 id="landmarkTitle" class="text-xl sm:text-2xl font-black text-white mt-2">LA PAZ</h3>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex gap-2 bg-black/50 backdrop-blur px-3.5 py-1.5 rounded-full border border-white/10">
+                            <span id="dot-1" class="w-2.5 h-2.5 rounded-full bg-gold-400 transition-all"></span>
+                            <span id="dot-2" class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all"></span>
+                            <span id="dot-3" class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrusel con fotos específicas y reales de La Paz, Cochabamba y Santa Cruz -->
+                <div class="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-inner border border-slate-700/60">
+                    <!-- Foto 1: La Paz (Illimani / Teleférico) -->
+                    <div id="landmark-slide-1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-100" style="background-image: url('La\ Paz.jpg');"></div>
+                    <!-- Foto 2: Cochabamba (Cristo de la Concordia / Ciudad) -->
+                    <div id="landmark-slide-2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0" style="background-image: url('cocha.jpg');"></div>
+                    <!-- Foto 3: Santa Cruz (Plaza 24 de Septiembre / Arquitectura moderna) -->
+                    <div id="landmark-slide-3" class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0" style="background-image: url('santa\ cruz.jpg');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-700/80 shadow-xl">
+                <div class="max-w-3xl">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-gold-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span class="text-xs font-bold text-slate-300">Reseña Corporativa de Confianza</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-100 mb-3">Líderes Transfronterizos en Operaciones Binacionales</h3>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                        En <strong class="text-gold-300">CAMBIOS BOLIVIA - PERÚ</strong> garantizamos transferencias instantáneas entre Soles (PEN), Bolivianos (BOB) y Dólares (USD) respaldados con liquidez constante en ambos lados de la frontera. Brindamos tasas competitivas sin comisiones bancarias adicionales, con atención preferencial e inmediata.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-800 text-center sm:text-left">
+                    <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl font-bold">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-gold-400 font-mono">+10K</p>
+                            <p class="text-xs text-slate-400 font-extrabold uppercase tracking-wider">Operaciones Exitosas</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl font-bold">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-emerald-400 font-mono">100%</p>
+                            <p class="text-xs text-slate-400 font-extrabold uppercase tracking-wider">Seguridad Financiera</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ULTIMA SECCIÓN: CÓDIGO QR PROFESIONAL -->
+        <section class="w-full">
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-emerald-500/40 shadow-2xl relative overflow-hidden bg-gradient-to-r from-slate-900/95 via-fintech-bg to-emerald-950/30">
+                <div class="absolute -right-20 -bottom-20 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-3xl font-bold shrink-0 shadow-lg animate-pulse-slow">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <span class="bg-emerald-500/15 text-emerald-400 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-emerald-500/30">Atención 24/7 en Línea</span>
+                            <h3 class="text-2xl sm:text-3xl font-black text-white mt-2 tracking-tight">Escanea para Iniciar Operación Inmediata</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl leading-relaxed">
+                                Apunta la cámara de tu celular directamente al código QR para abrir el chat de WhatsApp con nuestro operador de turno y confirmar tu cambio al instante.
+                            </p>
+                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 mt-4 text-xs font-semibold text-slate-400">
+                                <span class="flex items-center gap-1.5 text-emerald-400"><i class="fa-solid fa-circle-check"></i> Respuesta en < 1 min</span>
+                                <span class="flex items-center gap-1.5 text-gold-400"><i class="fa-solid fa-circle-check"></i> Tipo de cambio fijo garantizado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center shrink-0 bg-slate-950/80 p-5 rounded-3xl border border-emerald-500/40 shadow-2xl">
+                        <div class="bg-white p-3 rounded-2xl shadow-inner border border-emerald-400/50 flex items-center justify-center" >}
+                            <img id="mainLogoImg" src="Mi_código_QR_2-1024.jpeg" width="210px">
+                            
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-300 uppercase tracking-widest mt-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-qrcode text-emerald-400"></i> Escanear con WhatsApp
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center py-6 border-t border-slate-800/80 text-xs text-slate-500 space-y-1">
+            <p>© 2026 CAMBIOS BOLIVIA - PERÚ. Todos los derechos reservados. Operaciones cifradas de extremo a extremo.</p>
+            <p class="text-gold-400/80 font-medium">Atención directa oficial en WhatsApp: +591 / +51 974590652</p>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const platformUrl = window.location.href;
+            document.getElementById('platformUrlInput').value = platformUrl;
+
+            const whatsappNumber = '974590652';
+            const defaultMsg = `🏛️ *CAMBIOS BOLIVIA - PERÚ* 🏛️️\n\nEstimado equipo, me comunico para coordinar la siguiente transacción:\n\n• Monto a Enviar: *100.00 PEN*\n• Monto a Recibir: *274.00 BOB*\n\nQuedo a la espera de las cuentas bancarias oficiales para proceder con el depósito. ¡Muchas gracias!`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMsg)}`;
+            
+            const qrcodeContainer = document.getElementById("qrcodeWhatsApp");
+            qrcodeContainer.innerHTML = "";
+            new QRCode(qrcodeContainer, {
+                text: whatsappUrl,
+                width: 128,
+                height: 128,
+                colorDark: "#030712",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
+
+        function openPlatformDirectly() {
+            window.open(window.location.href, '_blank');
+        }
+
+        function copyPlatformUrl() {
+            const input = document.getElementById('platformUrlInput');
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value).then(() => {
+                event.target.innerHTML = '<i class="fa-solid fa-check"></i> ¡Copiado!';
+                setTimeout(() => {
+                    event.target.innerHTML = '<i class="fa-regular fa-copy text-sm"></i> Copiar';
+                }, 2000);
+            });
+        }
+
+        // Live Clock
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('liveClock').innerText = now.toLocaleTimeString() + ' - BOT';
+        }, 1000);
+
+        // Background Slider Script
+        let currentBgSlide = 1;
+        setInterval(() => {
+            document.getElementById('bg-slide-1').style.opacity = currentBgSlide === 1 ? '1' : '0';
+            document.getElementById('bg-slide-2').style.opacity = currentBgSlide === 2 ? '1' : '0';
+            document.getElementById('bg-slide-3').style.opacity = currentBgSlide === 3 ? '1' : '0';
+            currentBgSlide = currentBgSlide % 3 + 1;
+        }, 6000);
+
+        // Landmark Carousel Script con La Paz, Cochabamba y Santa Cruz
+        let currentLandmarkSlide = 1;
+        const landmarkTitles = [
+            "LA PAZ",
+            "COCHABAMBA",
+            "SANTA CRUZ"
+        ];
+
+        function rotateCarouselSlides() {
+            document.getElementById('landmark-slide-1').style.opacity = currentLandmarkSlide === 1 ? '1' : '0';
+            document.getElementById('landmark-slide-2').style.opacity = currentLandmarkSlide === 2 ? '1' : '0';
+            document.getElementById('landmark-slide-3').style.opacity = currentLandmarkSlide === 3 ? '1' : '0';
+            
+            document.getElementById('dot-1').className = `w-2.5 h-2.5 rounded-full transition-all ${currentLandmarkSlide === 1 ? 'bg-gold-400' : 'bg-white/40'}`;
+            document.getElementById('dot-2').className = `w-2.5 h-2.5 rounded-full transition-all ${currentLandmarkSlide === 2 ? 'bg-gold-400' : 'bg-white/40'}`;
+            document.getElementById('dot-3').className = `w-2.5 h-2.5 rounded-full transition-all ${currentLandmarkSlide === 3 ? 'bg-gold-400' : 'bg-white/40'}`;
+
+            document.getElementById('landmarkTitle').innerText = landmarkTitles[currentLandmarkSlide - 1];
+            currentLandmarkSlide = currentLandmarkSlide % 3 + 1;
+        }
+
+        setInterval(rotateCarouselSlides, 4500);
+
+        // Coins Canvas Animation
+        const canvas = document.getElementById('coinsCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = Array.from({ length: 30 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 2.5 + 1,
+            speedY: Math.random() * 0.6 + 0.2,
+            opacity: Math.random() * 0.5 + 0.15
+        }));
+
+        function animateCoins() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#FACC15';
+            particles.forEach(p => {
+                ctx.globalAlpha = p.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                p.y -= p.speedY;
+                if (p.y < 0) p.y = height + 10;
+            });
+            requestAnimationFrame(animateCoins);
+        }
+        animateCoins();
+
+        const rateBuyVal = 2.68;
+        const rateSellVal = 2.74;
+        const rateUsdVal = 6.96;
+        const rateUsdBuyVal = 6.86;
+        const whatsappNumber = '974590652';
+
+        let currentPair = 'PEN_TO_BOB'; 
+
+        function setPair(pair) {
+            currentPair = pair;
+            
+            const btnPENtoBOB = document.getElementById('btnPairPENtoBOB');
+            const btnBOBtoPEN = document.getElementById('btnPairBOBtoPEN');
+            const btnUSDtoBOB = document.getElementById('btnPairUSDtoBOB');
+            const btnBOBtoUSD = document.getElementById('btnPairBOBtoUSD');
+
+            const styleInactive = "py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-slate-400 hover:text-white bg-slate-900/80 border border-slate-800";
+            const styleActive = "py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 bg-gold-500 text-black shadow-md";
+
+            btnPENtoBOB.className = styleInactive;
+            btnBOBtoPEN.className = styleInactive;
+            btnUSDtoBOB.className = styleInactive;
+            btnBOBtoUSD.className = styleInactive;
+
+            const lblSend = document.getElementById('lblSend');
+            const lblReceive = document.getElementById('lblReceive');
+            const flagSend = document.getElementById('flagSend');
+            const flagReceive = document.getElementById('flagReceive');
+            const codeSend = document.getElementById('codeSend');
+            const codeReceive = document.getElementById('codeReceive');
+            const inputSend = document.getElementById('inputSend');
+
+            if (pair === 'PEN_TO_BOB') {
+                btnPENtoBOB.className = styleActive;
+                lblSend.innerText = "Tú Envías (Soles Peruanos)";
+                lblReceive.innerText = "Tú Recibes (Bolivianos)";
+                flagSend.innerText = "🇵🇪"; flagReceive.innerText = "🇧🇴";
+                codeSend.innerText = "PEN"; codeReceive.innerText = "BOB";
+                inputSend.value = "100";
+            } else if (pair === 'BOB_TO_PEN') {
+                btnBOBtoPEN.className = styleActive;
+                lblSend.innerText = "Tú Envías (Bolivianos)";
+                lblReceive.innerText = "Tú Recibes (Soles Peruanos)";
+                flagSend.innerText = "🇧🇴"; flagReceive.innerText = "🇵🇪";
+                codeSend.innerText = "BOB"; codeReceive.innerText = "PEN";
+                inputSend.value = "300";
+            } else if (pair === 'USD_TO_BOB') {
+                btnUSDtoBOB.className = styleActive;
+                lblSend.innerText = "Tú Envías (Dólares USD)";
+                lblReceive.innerText = "Tú Recibes (Bolivianos)";
+                flagSend.innerText = "🇺🇸"; flagReceive.innerText = "🇧🇴";
+                codeSend.innerText = "USD"; codeSend.innerText = "BOB";
+                inputSend.value = "50";
+            } else if (pair === 'BOB_TO_USD') {
+                btnBOBtoUSD.className = styleActive;
+                lblSend.innerText = "Tú Envías (Bolivianos)";
+                lblReceive.innerText = "Tú Recibes (Dólares USD)";
+                flagSend.innerText = "🇧🇴"; flagReceive.innerText = "🇺🇸";
+                codeSend.innerText = "BOB"; codeReceive.innerText = "USD";
+                inputSend.value = "350";
+            }
+            calculateFromSend();
+        }
+
+        function rotatePair() {
+            if (currentPair === 'PEN_TO_BOB') setPair('BOB_TO_PEN');
+            else if (currentPair === 'BOB_TO_PEN') setPair('USD_TO_BOB');
+            else if (currentPair === 'USD_TO_BOB') setPair('BOB_TO_USD');
+            else setPair('PEN_TO_BOB');
+        }
+
+        function calculateFromSend() {
+            const sendVal = parseFloat(document.getElementById('inputSend').value) || 0;
+            const inputReceive = document.getElementById('inputReceive');
+            
+            let receiveVal = 0;
+            if (currentPair === 'PEN_TO_BOB') receiveVal = sendVal * rateSellVal;
+            else if (currentPair === 'BOB_TO_PEN') receiveVal = sendVal / rateBuyVal;
+            else if (currentPair === 'USD_TO_BOB') receiveVal = sendVal * rateUsdVal;
+            else if (currentPair === 'BOB_TO_USD') receiveVal = sendVal / rateUsdBuyVal;
+
+            inputReceive.value = receiveVal.toFixed(2);
+            updateUIAndWhatsApp(sendVal, receiveVal);
+        }
+
+        function calculateFromReceive() {
+            const receiveVal = parseFloat(document.getElementById('inputReceive').value) || 0;
+            const inputSend = document.getElementById('inputSend');
+            
+            let sendVal = 0;
+            if (currentPair === 'PEN_TO_BOB') sendVal = receiveVal / rateSellVal;
+            else if (currentPair === 'BOB_TO_PEN') sendVal = receiveVal * rateBuyVal;
+            else if (currentPair === 'USD_TO_BOB') sendVal = receiveVal / rateUsdVal;
+            else if (currentPair === 'BOB_TO_USD') sendVal = receiveVal * rateUsdBuyVal;
+
+            inputSend.value = sendVal.toFixed(2);
+            updateUIAndWhatsApp(sendVal, receiveVal);
+        }
+
+        // Mensaje de WhatsApp profesional: Solo muestra montos y divisas (sin operación ni tasa aplicada)
+        function updateUIAndWhatsApp(sendVal, receiveVal) {
+            const btnWhatsApp = document.getElementById('btnWhatsAppPact');
+            const txtCurrentRateHeader = document.getElementById('txtCurrentRateHeader');
+            const codeSendStr = document.getElementById('codeSend').innerText;
+            const codeReceiveStr = document.getElementById('codeReceive').innerText;
+
+            let rateStr = "";
+            if (currentPair === 'PEN_TO_BOB') rateStr = `1 PEN = ${rateSellVal.toFixed(4)} BOB`;
+            else if (currentPair === 'BOB_TO_PEN') rateStr = `1 BOB = ${(1/rateBuyVal).toFixed(4)} PEN`;
+            else if (currentPair === 'USD_TO_BOB') rateStr = `1 USD = ${rateUsdVal.toFixed(4)} BOB`;
+            else if (currentPair === 'BOB_TO_USD') rateStr = `1 USD = ${rateUsdBuyVal.toFixed(4)} BOB`;
+
+            txtCurrentRateHeader.innerText = rateStr;
+
+            const msgText = `🏛️ *CAMBIOS BOLIVIA - PERÚ* 🏛️\n\nEstimado equipo, me comunico para coordinar la siguiente transacción:\n\n• Monto a Enviar: *${sendVal.toFixed(2)} ${codeSendStr}*\n• Monto a Recibir: *${receiveVal.toFixed(2)} ${codeReceiveStr}*\n\nQuedo a la espera de las cuentas bancarias oficiales para proceder con el depósito. ¡Muchas gracias!`;
+
+            btnWhatsApp.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msgText)}`;
+        }
+
+        calculateFromSend();
+
+        function copyAccount(element, textToCopy, accountName) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                document.querySelectorAll('.glass-card').forEach(card => {
+                    card.classList.remove('neon-glow-active');
+                });
+                element.classList.add('neon-glow-active');
+
+                const titleElement = element.querySelector('h3');
+                const originalTitle = titleElement.innerText;
+                titleElement.innerText = "¡Copiado con Éxito!";
+                titleElement.classList.add('text-gold-400');
+
+                setTimeout(() => {
+                    titleElement.innerText = originalTitle;
+                    titleElement.classList.remove('text-gold-400');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
